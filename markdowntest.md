@@ -2,7 +2,13 @@
 
 <kbd>control + shift + space</kbd><br><br>
 
+1. First
+   1. Sub item
+2. Second
 
+- First
+- Second
+  - Sub
 
 | Project  |  Description  |
 | :---         |  :---  |
