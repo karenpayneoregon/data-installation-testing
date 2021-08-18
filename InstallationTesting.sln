@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWindCoreLibrary", "Nor
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit test projects", "Unit test projects", "{31D4D208-2392-46BF-9C65-0B98D979ACE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWindUnitTestProject", "NorthWindUnitTestProject\NorthWindUnitTestProject.csproj", "{27BB84BB-D83C-4FA6-95BF-8E41157FBF16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWindUnitTestProject", "NorthWindUnitTestProject\NorthWindUnitTestProject.csproj", "{27BB84BB-D83C-4FA6-95BF-8E41157FBF16}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{721F6E08-149D-437D-AACF-BAB58D90942C}"
 	ProjectSection(SolutionItems) = preProject
