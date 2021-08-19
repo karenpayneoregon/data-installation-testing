@@ -14,6 +14,7 @@ namespace NorthWindUnitTestProject
     [TestClass]
     public partial class MainTest : TestBase
     {
+        
         [TestMethod]
         [TestTraits(Trait.EntityFrameworkCoreReadProjectionTest)]
         public async Task GetCustomersTask()
@@ -39,6 +40,14 @@ namespace NorthWindUnitTestProject
             Assert.AreEqual(categories.Count,8,"Expected 8 category records");
             
         }
+
+        [TestMethod]
+        public void A_TestConnection()
+        {
+            
+            Debug.WriteLine(BuildConnection());
+        }
+
 
 
 

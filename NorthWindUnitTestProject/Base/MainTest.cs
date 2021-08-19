@@ -2,10 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration; // for BuildConnection
 using NorthWindCoreLibrary.Classes.North.Classes;
 using NorthWindCoreLibrary.Data;
 using NorthWindCoreLibrary.Models;
@@ -16,8 +18,18 @@ namespace NorthWindUnitTestProject
 {
     public partial class MainTest
     {
+        protected static string BuildConnection()
+        {
 
-        protected static string ConnectionString => "Data Source=.\\SQLEXPRESS;Initial Catalog=NorthWind2020;Integrated Security=true";
+            var configuration = (new ConfigurationBuilder()).AddJsonFile("appsettings.json", true, true).Build();
+
+            var sections = configuration.GetSection("database").GetChildren().ToList();
+
+            return $"Data Source={sections[1].Value};Initial Catalog={sections[0].Value};Integrated Security={sections[2].Value}";
+
+        }
+
+        protected static string ConnectionString => BuildConnection();
 
         /// <summary>
         /// Perform any initialize for the class
@@ -93,9 +105,11 @@ namespace NorthWindUnitTestProject
             }
             catch (Exception exception)
             {
+                Debug.WriteLine($"{exception.Message}");
                 return (false, null, exception);
             }
 
         }
+      
     }
 }
