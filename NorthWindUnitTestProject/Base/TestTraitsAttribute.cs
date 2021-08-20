@@ -29,7 +29,9 @@ namespace NorthWindUnitTestProject.Base
         Services,
         ReadProjectionTest,
         EntityFrameworkCoreReadProjectionTest,
-        DataProviderTest
+        DataProviderTest,
+        ConnectionsTest,
+        WarmupEntityFramework
     }
     /// <summary>
     /// Declarative class for using Trait enum about for traits on test method.

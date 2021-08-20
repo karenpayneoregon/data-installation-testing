@@ -74,5 +74,11 @@ private static string BuildConnection()
 
 }
 ```
+### Results of incorrect connection string
 
+![bad](assets/badConnect.png)
+
+### Results of correct connection string
+
+![good](assets/goodConnect.png)
 

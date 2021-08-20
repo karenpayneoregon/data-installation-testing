@@ -1,3 +1,4 @@
+
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -6,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NorthWindCoreLibrary.Classes.North.Classes;
 using NorthWindCoreLibrary.Data;
+using NorthWindCoreLibrary.LanguageExtensions;
 using NorthWindCoreLibrary.Models;
 using NorthWindUnitTestProject.Base;
 
@@ -14,7 +16,41 @@ namespace NorthWindUnitTestProject
     [TestClass]
     public partial class MainTest : TestBase
     {
-        
+        /// <summary>
+        /// Inspect connection string in appsettings.json
+        /// </summary>
+        [TestMethod]
+        public void A00_ViewConnection()
+        {
+
+            Debug.WriteLine(BuildConnection());
+        }
+
+        /// <summary>
+        /// A_ Ensures 1st run
+        /// </summary>
+        /// <returns></returns>
+        [TestMethod]
+        [TestTraits(Trait.ConnectionsTest)]
+        public async Task A01_TestConnectionTask()
+        {
+            await using var context = new NorthwindContext();
+            Assert.IsTrue(await context.TestConnection(),"Connection failed");
+        }
+
+        /// <summary>
+        /// Do nothing other then wake-up EF
+        /// </summary>
+        /// <returns></returns>
+        [TestMethod]
+        [TestTraits(Trait.WarmupEntityFramework)]
+        public async Task A02_ConnectionWarmup()
+        {
+            await using var context = new NorthwindContext();
+            Assert.IsTrue(await context.Customers.CountAsync() >0,"Warmup failed");
+        }
+
+
         [TestMethod]
         [TestTraits(Trait.EntityFrameworkCoreReadProjectionTest)]
         public async Task GetCustomersTask()
@@ -41,12 +77,7 @@ namespace NorthWindUnitTestProject
             
         }
 
-        [TestMethod]
-        public void A_TestConnection()
-        {
-            
-            Debug.WriteLine(BuildConnection());
-        }
+
 
 
 
