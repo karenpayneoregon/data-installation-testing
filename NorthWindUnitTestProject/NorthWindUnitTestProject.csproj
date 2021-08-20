@@ -7,6 +7,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Content Include="..\NorthWindCoreLibrary\appsettings.json" Link="appsettings.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
 		<PackageReference Include="MSTest.TestAdapter" Version="2.1.1" />
 		<PackageReference Include="MSTest.TestFramework" Version="2.1.1" />
@@ -16,12 +22,6 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\NorthWindCoreLibrary\NorthWindCoreLibrary.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Update="appsettings.json">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </None>
 	</ItemGroup>
 
 </Project>
