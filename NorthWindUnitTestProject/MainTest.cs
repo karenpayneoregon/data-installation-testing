@@ -20,6 +20,7 @@ namespace NorthWindUnitTestProject
         /// Inspect connection string in appsettings.json
         /// </summary>
         [TestMethod]
+        [TestTraits(Trait.ConnectionsTest)]
         public void A00_ViewConnection()
         {
 

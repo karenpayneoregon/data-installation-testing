@@ -24,6 +24,8 @@ For developer edition of SQL-Server the following change is required.
 This means that the following file `appsettings.json` in the unit test and class project you need to replace `.\\SQLEXPRES` with SERVER-NAME what ever it may be.
  file 
 
+
+
 ```json
 {
   "database": {
@@ -34,6 +36,11 @@ This means that the following file `appsettings.json` in the unit test and class
   }
 }
 ```
+
+Both appsettings.json are the exact same file using a link. Alter one and the other is updated.
+
+![linked](assets/linkedAppSettings.png)
+
 
 In the unit test project this code gets the connection string from appsettings.json
 
