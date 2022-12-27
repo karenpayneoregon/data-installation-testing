@@ -57,6 +57,13 @@ namespace NorthWindCoreLibrary.Classes
 
                 var products = await GetProductsWithProjection();
 
+                var test = products
+                    .GroupBy(product => new CategoryProduct
+                    {
+                        CategoryName = product.CategoryName,
+                        ProductName = product.ProductName
+                    }).ToList();
+
                 productList = products
                     .GroupBy(product => new CategoryProduct
                     {

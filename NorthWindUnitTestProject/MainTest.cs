@@ -1,10 +1,12 @@
 
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NorthWindCoreLibrary.Classes;
 using NorthWindCoreLibrary.Classes.North.Classes;
 using NorthWindCoreLibrary.Data;
 using NorthWindCoreLibrary.LanguageExtensions;
@@ -77,6 +79,21 @@ namespace NorthWindUnitTestProject
             Assert.AreEqual(categories.Count,8,"Expected 8 category records");
             
         }
+
+        [TestMethod]
+        [TestTraits(Trait.PlaceHolder)]
+        public async Task ProductsGroupBy()
+        {
+            var results = await OrderOperations.GetEmployeesTask();
+            IGrouping<int, Employees> grouped = OrderOperations.EmployeeMostOrders(results);
+
+            for (int index = 0; index < grouped.Count(); index++)
+            {
+                Console.WriteLine(grouped.Key);
+            }
+
+        }
+
 
 
 
